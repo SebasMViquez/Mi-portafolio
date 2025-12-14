@@ -536,6 +536,14 @@
         document.getElementById('messageError').textContent = '';
       }
       
+      // Validar asunto
+      if (!subject) {
+        document.getElementById('subject').classList.add('error'); // Opcional: agrega class error si definiste
+        isValid = false;
+      } else {
+        document.getElementById('subject').classList.remove('error');
+      }
+      
       if (!isValid) return;
       
       // Simular envío (aquí iría Firebase)
