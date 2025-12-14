@@ -1,0 +1,283 @@
+/* ========== ESTILOS GLOBALES ========== */
+:root {
+  --color-primario: #2b2d42;     /* Azul grisáceo oscuro 2b2d42 */
+  --color-secundario: #663129;   /* Gris azulado */
+  --color-acento: #7b7c7e;       /* Rojo vino / borgoña */
+  --color-fondo: #c7caca;        /* Gris claro edf2f4*/
+  --color-texto: #222;
+  --color-claro: #dcdcdc;
+  --fuente-titulos: 'Montserrat', sans-serif;
+  --fuente-texto: 'Open Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  color: var(--color-texto);
+  background-color: var(--color-claro);
+  line-height: 1.6;
+}
+
+/* ========== NAVBAR ========== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}
+
+.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+
+.logo {
+  font-family: var(--fuente-titulos);
+  color: var(--color-primario);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-texto);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-primario);
+}
+
+/* ========== SECCIONES GENERALES ========== */
+
+.section {
+  padding: 100px 10%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.bg-light {
+  background-color: var(--color-fondo);
+}
+
+.section h2 {
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  color: var(--color-primario);
+  margin-bottom: 1.5rem;
+}
+
+.section p {
+  max-width: 800px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ========== SECCIÓN HERO (INICIO) ========== */
+
+.hero {
+  background: linear-gradient(90deg, var(--color-primario), var(--color-acento));
+  color: var(--color-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 10%;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero h2 span {
+  color: var(--color-claro);
+  font-weight: bold;
+}
+
+.hero-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-img img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+.btn {
+  display: inline-block;
+  background: var(--color-claro);
+  color: var(--color-primario);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--color-secundario);
+  color: var(--color-claro);
+}
+
+/* ========== HABILIDADES ========== */
+
+.skills {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.skills li {
+  background: var(--color-primario);
+  color: var(--color-claro);
+  padding: 0.75rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skills li:hover {
+  background: var(--color-secundario);
+  transform: scale(1.1);
+}
+
+.skills li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-primario);
+  color: var(--color-claro);
+  padding: 0.7rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skills li img {
+  width: 20px;
+  height: 20px;
+}
+
+
+/* ========== PROYECTOS ========== */
+
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--color-claro);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 300px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  color: var(--color-primario);
+  font-family: var(--fuente-titulos);
+  margin-bottom: 0.75rem;
+}
+
+/* ========== CERTIFICACIONES ========== */
+
+.cert-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cert-list li {
+  background: var(--color-claro);
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-left: 4px solid var(--color-primario);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* ========== CONTACTO ========== */
+
+#contacto a {
+  color: var(--color-primario);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#contacto a:hover {
+  text-decoration: underline;
+}
+
+/* ========== FOOTER ========== */
+
+.footer {
+  background-color: var(--color-primario);
+  color: var(--color-claro);
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Más adelante podés implementar un menú tipo "hamburguesa" */
+  }
+
+  .section {
+    padding: 80px 5%;
+  }
+
+  .project-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
