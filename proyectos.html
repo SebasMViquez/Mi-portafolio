@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyectos | Sebastián Miranda Víquez</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Estilos específicos para proyectos -->
+  <link rel="stylesheet" href="css/proyectos.css" />
+</head>
+<body>
+
+  <!-- ======== NAVBAR ======== -->
+  <header class="navbar">
+    <nav>
+      <h1 class="logo">Sebastian Miranda V.</h1>
+      
+      <button class="hamburger" id="hamburger" aria-label="Menú de navegación">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+        <li><a href="index.html#habilidades">Habilidades</a></li>
+        <li><a href="proyectos.html" class="active">Proyectos</a></li>
+        <li><a href="index.html#certificaciones">Certificaciones</a></li>
+        <li><a href="contacto.html" class="contact-btn">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ======== CONTENIDO PROYECTOS ======== -->
+  <section class="section projects-page">
+    <div class="container">
+      <h2 data-aos="fade-up">Todos Mis Proyectos</h2>
+      
+      <!-- Proyecto 1 -->
+      <div class="project-detail" data-aos="fade-up">
+        <h3>Red Social en Java</h3>
+        <div class="project-meta">
+          <span><strong>Tecnologías:</strong> Java, Grafos, MySQL, Swing</span>
+          <span><strong>Año:</strong> 2024</span>
+          <span><strong>Estado:</strong> ✅ Completado</span>
+        </div>
+        <div class="project-description">
+          <h4>Descripción Detallada:</h4>
+          <p>Implementación completa de una red social utilizando estructuras de datos avanzadas para simular interacciones sociales complejas.</p>
+          
+          <h4>Características Principales:</h4>
+          <ul class="features-list">
+            <li><strong>Sistema de Grafos:</strong> Para modelar relaciones de amistad</li>
+            <li><strong>Estructuras de Datos:</strong> Listas enlazadas, pilas y colas</li>
+            <li><strong>Algoritmo de Dijkstra:</strong> Implementado para encontrar caminos óptimos</li>
+            <li><strong>Interfaz Gráfica:</strong> Desarrollada con Java Swing</li>
+            <li><strong>Base de Datos:</strong> Persistencia en MySQL</li>
+            <li><strong>Funcionalidades:</strong> Sistema de amigos, publicaciones, mensajería</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Proyecto 2 -->
+      <div class="project-detail" data-aos="fade-up" data-aos-delay="100">
+        <h3>Infraestructura Cloud (Oracle)</h3>
+        <div class="project-meta">
+          <span><strong>Tecnologías:</strong> Oracle OCI, Linux, Docker</span>
+          <span><strong>Año:</strong> 2025</span>
+          <span><strong>Estado:</strong> 🚀 En producción</span>
+        </div>
+        <div class="project-description">
+          <h4>Arquitectura Implementada:</h4>
+          
+          <div class="architecture">
+            <div class="arch-row">
+              <div class="arch-component">
+                <div class="arch-icon">🌐</div>
+                <span class="arch-title">Load Balancer</span>
+                <span class="arch-desc">Nginx con SSL</span>
+              </div>
+              <div class="arch-arrow">→</div>
+              <div class="arch-component">
+                <div class="arch-icon">🖥️</div>
+                <span class="arch-title">Web Servers</span>
+                <span class="arch-desc">2 instancias Linux</span>
+              </div>
+              <div class="arch-arrow">→</div>
+              <div class="arch-component">
+                <div class="arch-icon">🗄️</div>
+                <span class="arch-title">Database</span>
+                <span class="arch-desc">PostgreSQL Cluster</span>
+              </div>
+            </div>
+          </div>
+          
+          <h4>Configuraciones Clave:</h4>
+          <ul class="features-list">
+            <li>Alta disponibilidad con múltiples zonas</li>
+            <li>Seguridad con grupos personalizados</li>
+            <li>Automatización con scripts Bash</li>
+            <li>Monitorización en tiempo real</li>
+            <li>Backup automático</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Proyecto 3 -->
+      <div class="project-detail" data-aos="fade-up" data-aos-delay="200">
+        <h3>Gestión de Base de Datos SQL Server</h3>
+        <div class="project-meta">
+          <span><strong>Tecnologías:</strong> SQL Server, C#, .NET</span>
+          <span><strong>Año:</strong> 2023</span>
+          <span><strong>Cliente:</strong> Planta industrial</span>
+        </div>
+        <div class="project-description">
+          <h4>Sistema Desarrollado:</h4>
+          
+          <div class="modules-grid">
+            <div class="module">
+              <h5>📦 Inventario</h5>
+              <ul>
+                <li>Control de materias primas</li>
+                <li>Seguimiento de productos</li>
+                <li>Alertas de stock</li>
+              </ul>
+            </div>
+            <div class="module">
+              <h5>🏭 Producción</h5>
+              <ul>
+                <li>Control de líneas</li>
+                <li>Tracking de eficiencia</li>
+                <li>Planificación de turnos</li>
+              </ul>
+            </div>
+            <div class="module">
+              <h5>✅ Calidad</h5>
+              <ul>
+                <li>Registro de pruebas</li>
+                <li>Control de estándares</li>
+                <li>Certificación</li>
+              </ul>
+            </div>
+            <div class="module">
+              <h5>📊 Reportes</h5>
+              <ul>
+                <li>Dashboards interactivos</li>
+                <li>Reportes automatizados</li>
+                <li>Análisis de tendencias</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="back-home" data-aos="fade-up">
+        <a href="index.html" class="btn">← Volver al Inicio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div style="margin-bottom: 1rem;">
+      <a href="index.html">Inicio</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <p>© 2025 Sebastián Miranda Víquez — Todos los derechos reservados</p>
+  </footer>
+
+  <!-- ======== SCRIPTS ======== -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/hamburger-menu.js"></script>
+  
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+</body>
+</html>

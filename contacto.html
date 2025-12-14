@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Sebastián Miranda Víquez</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- MISMO CSS que index.html -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- CSS adicional específico para formulario -->
+  <style>
+    /* Estilos específicos para página de contacto */
+    .contact-page {
+      padding-top: 120px;
+    }
+    
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .contact-info {
+      background: var(--color-fondo);
+      padding: 2rem;
+      border-radius: 10px;
+      border-left: 5px solid var(--color-primario);
+    }
+    
+    .contact-info h3 {
+      color: var(--color-primario);
+      margin-bottom: 1.5rem;
+      font-family: var(--fuente-titulos);
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+    
+    .contact-icon {
+      background: var(--color-primario);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .contact-details h4 {
+      margin: 0 0 0.3rem 0;
+      color: var(--color-texto);
+    }
+    
+    .contact-details p {
+      margin: 0;
+      color: #666;
+    }
+    
+    .contact-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--color-primario);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+    
+    /* Estilos del formulario */
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--color-primario);
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-family: var(--fuente-texto);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--color-primario);
+    }
+    
+    textarea.form-input {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--color-primario);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+    
+    .btn-submit:hover {
+      background: var(--color-secundario);
+      transform: translateY(-2px);
+    }
+    
+    /* Estados del formulario */
+    .form-input.error {
+      border-color: #f44336;
+    }
+    
+    .form-input.success {
+      border-color: #4CAF50;
+    }
+    
+    .error-message {
+      color: #f44336;
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+      display: block;
+    }
+    
+    /* Mensajes de éxito/error */
+    .form-message {
+      padding: 1rem;
+      border-radius: 5px;
+      margin: 1rem 0;
+      display: none;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .form-message.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    
+    .form-message.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    .form-message i {
+      font-size: 1.5rem;
+    }
+    
+    /* Spinner de carga */
+    .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 0.5rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .btn-submit.loading .spinner {
+      display: inline-block;
+    }
+    
+    /* FAQ Accordion */
+    .faq-section {
+      margin-top: 4rem;
+    }
+    
+    .faq-item {
+      background: white;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .faq-question {
+      width: 100%;
+      padding: 1rem;
+      background: var(--color-fondo);
+      border: none;
+      text-align: left;
+      font-weight: 600;
+      color: var(--color-primario);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--fuente-titulos);
+    }
+    
+    .faq-question:hover {
+      background: #e0e0e0;
+    }
+    
+    .faq-answer {
+      padding: 0 1rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      padding: 1rem;
+      max-height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======== NAVBAR IDÉNTICO ======== -->
+  <header class="navbar">
+    <nav>
+      <h1 class="logo">Sebastian Miranda V.</h1>
+      
+      <button class="hamburger" id="hamburger" aria-label="Menú de navegación">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+        <li><a href="index.html#habilidades">Habilidades</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="index.html#certificaciones">Certificaciones</a></li>
+        <li><a href="contacto.html" class="active contact-btn">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ======== PÁGINA DE CONTACTO ======== -->
+  <section class="section contact-page">
+    <div class="container contact-container">
+      <div class="contact-header">
+        <h2>Contacto</h2>
+        <p>¿Quieres ponerte en contacto conmigo? Completa el formulario o usa cualquiera de los métodos disponibles.</p>
+      </div>
+      
+      <div class="contact-grid">
+        <!-- Información de Contacto -->
+        <div class="contact-info">
+          <h3>Información de Contacto</h3>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <p>smirandaviquez@gmail.com</p>
+              <a href="mailto:smirandaviquez@gmail.com" class="contact-link">Enviar correo →</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div class="contact-details">
+              <h4>LinkedIn</h4>
+              <p>Sebastián Miranda Víquez</p>
+              <a href="https://www.linkedin.com/in/sebastian-miranda-v%C3%ADquez-6a9954389/" target="_blank" class="contact-link">Ver perfil →</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h4>Ubicación</h4>
+              <p>Costa Rica</p>
+              <span class="contact-link">Disponible para trabajo remoto</span>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">⏱️</div>
+            <div class="contact-details">
+              <h4>Tiempo de Respuesta</h4>
+              <p>Menos de 24 horas</p>
+              <span class="contact-link" style="color: #4CAF50;">● Disponible ahora</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Formulario de Contacto -->
+        <div class="contact-form-container">
+          <h3 style="color: var(--color-primario); margin-bottom: 1.5rem; font-family: var(--fuente-titulos);">Enviar Mensaje</h3>
+          
+          <form id="contactForm" class="contact-form">
+            <!-- Nombre -->
+            <div class="form-group">
+              <label for="name" class="form-label">Nombre Completo *</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="Ej: Juan Pérez" required>
+              <span class="error-message" id="nameError"></span>
+            </div>
+            
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email" class="form-label">Correo Electrónico *</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="ejemplo@email.com" required>
+              <span class="error-message" id="emailError"></span>
+            </div>
+            
+            <!-- Asunto -->
+            <div class="form-group">
+              <label for="subject" class="form-label">Asunto *</label>
+              <select id="subject" name="subject" class="form-input" required>
+                <option value="">Selecciona un asunto</option>
+                <option value="trabajo">Oferta de Trabajo</option>
+                <option value="proyecto">Proyecto Freelance</option>
+                <option value="colaboracion">Colaboración</option>
+                <option value="consulta">Consulta Técnica</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            
+            <!-- Mensaje -->
+            <div class="form-group">
+              <label for="message" class="form-label">Mensaje *</label>
+              <textarea id="message" name="message" class="form-input" placeholder="Describe tu proyecto, consulta o propuesta..." required></textarea>
+              <span class="error-message" id="messageError"></span>
+            </div>
+            
+            <!-- Mensajes del formulario -->
+            <div id="successMessage" class="form-message success" style="display: none;">
+              <i>✅</i>
+              <div>
+                <strong>¡Mensaje enviado con éxito!</strong>
+                <p style="margin: 0; font-size: 0.9rem;">Te responderé en menos de 24 horas.</p>
+              </div>
+            </div>
+            
+            <div id="errorMessage" class="form-message error" style="display: none;">
+              <i>❌</i>
+              <div>
+                <strong>Error al enviar el mensaje</strong>
+                <p style="margin: 0; font-size: 0.9rem;">Por favor, intenta nuevamente.</p>
+              </div>
+            </div>
+            
+            <!-- Botón de envío -->
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <span class="spinner"></span>
+              <span id="btnText">Enviar Mensaje</span>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h3 style="text-align: center; color: var(--color-primario); margin-bottom: 2rem; font-family: var(--fuente-titulos);">
+          Preguntas Frecuentes
+        </h3>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            ¿Cuál es tu tiempo de respuesta habitual?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Normalmente respondo en menos de 24 horas hábiles. Para consultas urgentes, puedes contactarme directamente por email.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            ¿Trabajas de forma remota o presencial?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Trabajo 100% remoto. Tengo experiencia colaborando con equipos distribuidos en diferentes zonas horarias y países.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-question">
+            ¿Qué tipo de proyectos aceptas?
+            <span>▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Acepto proyectos de desarrollo web, aplicaciones móviles, arquitectura cloud, bases de datos y consultoría técnica. Me especializo en soluciones backend y cloud.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Botón para volver -->
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="index.html" class="btn" style="background: transparent; color: var(--color-primario); border: 2px solid var(--color-primario);">
+          ← Volver al Inicio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER IDÉNTICO ======== -->
+  <footer class="footer">
+    <div style="margin-bottom: 1rem;">
+      <a href="index.html" style="margin: 0 1rem;">Inicio</a>
+      <a href="proyectos.html" style="margin: 0 1rem;">Proyectos</a>
+      <a href="contacto.html" style="margin: 0 1rem;">Contacto</a>
+    </div>
+    <p>© 2025 Sebastián Miranda Víquez — Todos los derechos reservados</p>
+  </footer>
+
+  <!-- ======== SCRIPTS ======== -->
+  <script src="js/hamburger-menu.js"></script>
+  
+  <!-- Firebase (opcional - para cuando quieras implementarlo) -->
+  <!--
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-contact.js"></script>
+  -->
+  
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // Cerrar todos los demás
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('active');
+        });
+        
+        // Abrir este si no estaba activo
+        if (!isActive) {
+          faqItem.classList.add('active');
+        }
+      });
+    });
+    
+    // Validación básica del formulario (sin Firebase por ahora)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const successMessage = document.getElementById('successMessage');
+      const errorMessage = document.getElementById('errorMessage');
+      
+      // Reset mensajes
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+      
+      // Validación básica
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value.trim();
+      
+      let isValid = true;
+      
+      // Validar nombre
+      if (name.length < 2) {
+        document.getElementById('nameError').textContent = 'El nombre debe tener al menos 2 caracteres';
+        isValid = false;
+      } else {
+        document.getElementById('nameError').textContent = '';
+      }
+      
+      // Validar email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById('emailError').textContent = 'Ingresa un email válido';
+        isValid = false;
+      } else {
+        document.getElementById('emailError').textContent = '';
+      }
+      
+      // Validar mensaje
+      if (message.length < 10) {
+        document.getElementById('messageError').textContent = 'El mensaje debe tener al menos 10 caracteres';
+        isValid = false;
+      } else {
+        document.getElementById('messageError').textContent = '';
+      }
+      
+      if (!isValid) return;
+      
+      // Simular envío (aquí iría Firebase)
+      submitBtn.classList.add('loading');
+      btnText.textContent = 'Enviando...';
+      
+      setTimeout(() => {
+        submitBtn.classList.remove('loading');
+        btnText.textContent = 'Enviar Mensaje';
+        successMessage.style.display = 'flex';
+        
+        // Limpiar formulario
+        document.getElementById('contactForm').reset();
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

@@ -8,67 +8,78 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
 
-  <!-- AOS (Animate On Scroll) CSS -->
+  <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-
-  <!-- Hoja de estilos -->
-  <link rel="stylesheet" href="css/Style.css" />
+  <!-- Hoja de estilos ORIGINAL -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ======== NAVBAR ======== -->
+  <!-- ======== NAVBAR ORIGINAL ======== -->
   <header class="navbar">
     <nav>
       <h1 class="logo">Sebastian Miranda V.</h1>
-      <ul class="nav-links">
+      
+      <!-- Botón hamburguesa solo para móvil -->
+      <button class="hamburger" id="hamburger" aria-label="Menú de navegación">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <ul class="nav-links" id="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#sobre-mi">Sobre mí</a></li>
         <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
         <li><a href="#certificaciones">Certificaciones</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="contacto.html" class="contact-btn">Contacto</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ======== SECCIÓN INICIO ======== -->
+  <!-- ======== HERO ORIGINAL (TEXTO CENTRADO + FOTO) ======== -->
   <section id="inicio" class="section hero">
-  <div class="hero-container">
-    <div class="hero-text" data-aos="fade-right">
-      <h2>Console.log(<span>Hola, soy Sebastián Miranda</span>);</h2>
-      <p>Desarrollador, ingeniero en Computación y Cloud Architect Junior</p>
-      <a href="#proyectos" class="btn">Ver mis proyectos</a>
-    </div>
+    <div class="hero-container">
+      <div class="hero-text" data-aos="fade-right">
+        <h2>Console.log(<span>"Hola, soy Sebastián Miranda"</span>);</h2>
+        <p>Desarrollador, ingeniero en Computación y Cloud Architect Junior</p>
+        <a href="#proyectos" class="btn">Ver mis proyectos</a>
+      </div>
 
-    <div class="hero-img" data-aos="fade-left">
-      <img src="img/personalpic.jpg" alt="Foto de Sebastián Miranda">
-    </div>
-  </div>
-</section>
-
-
-  <!-- ======== SOBRE MÍ ======== -->
-  <section id="sobre-mi" class="section">
-    <div class="container" data-aos="fade-right">
-      <h2>Sobre mí</h2>
-      <p>Soy un desarrollador apasionado por la integracion de tecnologias innovadoras, la nube y el desarrollo backend. Me encanta idear soluciones eficientes y aprender constantemente sobre nuevas herramientas que optimicen el desarrollo de software y su arquitectura.</p>
+      <div class="hero-img" data-aos="fade-left">
+        <img src="img/personalpic.jpg" alt="Foto de Sebastián Miranda">
+      </div>
     </div>
   </section>
 
-  <!-- ======== HABILIDADES ======== -->
+  <!-- ======== SOBRE MÍ ORIGINAL (TODO CENTRADO) ======== -->
+  <section id="sobre-mi" class="section">
+    <div class="container">
+      <h2 data-aos="fade-up">Sobre mí</h2>
+      <p data-aos="fade-up" data-aos-delay="200">
+        Soy un desarrollador apasionado por la integracion de tecnologias innovadoras, 
+        la nube y el desarrollo backend. Me encanta idear soluciones eficientes y aprender 
+        constantemente sobre nuevas herramientas que optimicen el desarrollo de software 
+        y su arquitectura.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======== HABILIDADES ORIGINAL (TODO CENTRADO) ======== -->
   <section id="habilidades" class="section bg-light">
-    <div class="container" data-aos="fade-up">
-      <h2>Habilidades Técnicas</h2>
-      <ul class="skills">
+    <div class="container">
+      <h2 data-aos="fade-up">Habilidades Técnicas</h2>
+      <ul class="skills" data-aos="fade-up" data-aos-delay="200">
         <li><img src="img/javaicon.png" alt="Java"> Java</li>
         <li><img src="img/pythonicon.png" alt="Python"> Python</li>
         <li><img src="img/javascripticon.png" alt="JavaScript"> JavaScript</li>
         <li><img src="img/reacticon.png" alt="React"> React</li>
         <li><img src="img/Csharpicon.png" alt="C#"> C#</li>
         <li><img src="img/puntoneticon.png" alt=".Net"> .Net</li>
-        <li><img src="img/cssicon.png" alt="CSS"> CSS </li>
-        <li><img src="img/htmlicon.png" alt="HTML"> HTML </li>
+        <li><img src="img/cssicon.png" alt="CSS"> CSS</li>
+        <li><img src="img/htmlicon.png" alt="HTML"> HTML</li>
         <li><img src="img/sqlservericon.png" alt="SQL Server"> Microsoft SQL Server</li>
         <li><img src="img/ociicon.png" alt="Oracle"> Oracle Cloud Infrastructure</li>
         <li><img src="img/postgresqlicon.png" alt="PostgreSQL"> PostgreSQL</li>
@@ -79,13 +90,12 @@
       </ul>
     </div>
   </section>
-  
 
-  <!-- ======== PROYECTOS ======== -->
+  <!-- ======== PROYECTOS ORIGINAL (TODO CENTRADO) ======== -->
   <section id="proyectos" class="section">
-    <div class="container" data-aos="zoom-in">
-      <h2>Proyectos Destacados</h2>
-      <div class="project-cards">
+    <div class="container">
+      <h2 data-aos="fade-up">Proyectos Destacados</h2>
+      <div class="project-cards" data-aos="zoom-in" data-aos-delay="200">
         <div class="card">
           <h3>Red Social en Java</h3>
           <p>Implementación de estructuras de datos (listas, pilas, colas y grafos) para simular una red social funcional.</p>
@@ -99,14 +109,19 @@
           <p>Desarrollo de un sistema relacional en SQL Server para la gestión interna de una planta de producción.</p>
         </div>
       </div>
+      <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+        <a href="proyectos.html" class="btn" style="background: transparent; color: var(--color-primario); border: 2px solid var(--color-primario);">
+          Ver todos los proyectos →
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ======== CERTIFICACIONES ======== -->
+  <!-- ======== CERTIFICACIONES ORIGINAL (TODO CENTRADO) ======== -->
   <section id="certificaciones" class="section bg-light">
-    <div class="container" data-aos="fade-up">
-      <h2>Certificaciones</h2>
-      <ul class="cert-list">
+    <div class="container">
+      <h2 data-aos="fade-up">Certificaciones</h2>
+      <ul class="cert-list" data-aos="fade-up" data-aos-delay="200">
         <li>Oracle Cloud Infrastructure 2025 Certified Multicloud Architect Professional</li>
         <li>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</li>
         <li>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</li>
@@ -116,40 +131,46 @@
     </div>
   </section>
 
-  <!-- ======== CONTACTO ======== -->
+  <!-- ======== CONTACTO ORIGINAL (TODO CENTRADO) ======== -->
   <section id="contacto" class="section">
-    <div class="container" data-aos="fade-up">
-      <h2>Contacto</h2>
-      <p>¿Quieres ponerte en contacto conmigo?</p>
-      <p><strong>Email:</strong> smirandaviquez@gmail.com</p>
-      <p><strong>LinkedIn:</strong> 
+    <div class="container">
+      <h2 data-aos="fade-up">Contacto</h2>
+      <p data-aos="fade-up" data-aos-delay="100">¿Quieres ponerte en contacto conmigo?</p>
+      <p data-aos="fade-up" data-aos-delay="200"><strong>Email:</strong> smirandaviquez@gmail.com</p>
+      <p data-aos="fade-up" data-aos-delay="300"><strong>LinkedIn:</strong> 
         <a href="https://www.linkedin.com/in/sebastian-miranda-v%C3%ADquez-6a9954389/" target="_blank">
           Sebastian Miranda Víquez
         </a>
       </p>
+      <div style="margin-top: 2rem;" data-aos="fade-up" data-aos-delay="400">
+        <a href="contacto.html" class="btn">Ir al formulario de contacto</a>
+      </div>
     </div>
   </section>
 
-  <!-- ======== FOOTER ======== -->
+  <!-- ======== FOOTER ORIGINAL ======== -->
   <footer class="footer">
+    <div style="margin-bottom: 1rem;">
+      <a href="index.html" style="margin: 0 1rem;">Inicio</a>
+      <a href="proyectos.html" style="margin: 0 1rem;">Proyectos</a>
+      <a href="contacto.html" style="margin: 0 1rem;">Contacto</a>
+    </div>
     <p>© 2025 Sebastián Miranda Víquez — Todos los derechos reservados</p>
   </footer>
 
-  <!-- AOS JS -->
+  <!-- ======== SCRIPTS ORIGINALES ======== -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="js/Script.js"></script>
+  <script src="js/hamburger-menu.js"></script>
+
   <script>
     AOS.init({
       duration: 1000,
       once: true
     });
   </script>
-
-  <!-- Script principal -->
-  <script src="js/Script.js"></script>
-  <!-- GSAP (Animaciones) -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-
 </body>
 </html>
