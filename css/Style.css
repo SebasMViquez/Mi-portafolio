@@ -327,6 +327,125 @@ body {
   text-decoration: underline;
 }
 
+/* Animaciones para los mensajes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-message {
+  animation: slideIn 0.3s ease;
+}
+
+/* Estados visuales mejorados */
+.form-input.success {
+  border-color: #4CAF50 !important;
+  background-color: rgba(76, 175, 80, 0.05);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+.form-input.error {
+  border-color: #f44336 !important;
+  background-color: rgba(244, 67, 54, 0.05);
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.1);
+}
+
+/* Select mejorado */
+select.form-input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%232b2d42' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+/* Botón de envío con mejor feedback */
+.btn-submit {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.btn-submit:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
+/* Spinner animado */
+.spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.btn-submit.loading .spinner {
+  display: inline-block;
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Contador de caracteres para textarea */
+.char-counter {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.3rem;
+}
+
+.char-counter.warning {
+  color: #ff9800;
+}
+
+.char-counter.error {
+  color: #f44336;
+}
+
 /* ========== FOOTER ORIGINAL ========== */
 .footer {
   background-color: var(--color-primario);
